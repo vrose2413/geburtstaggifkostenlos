@@ -6,9 +6,9 @@ Author: Unfoldwp
 Author URI: https://unfoldwp.com/
 Description: Magways is a multi-purpose blog/magazine WordPress theme. Elevate your blog or magazine with our feature-rich WordPress theme. Customize every aspect of your website effortlessly through the intuitive customizer, explore diverse widgets, and present your content in style with extensive post formats support. This theme can be used to build wide variety of websites like blog, magazine, fashion, travel, lifestlye, tech and many more.
 Requires at least: 5.3
-Tested up to: 6.5
+Tested up to: 6.8
 Requires PHP: 5.6
-Version: 1.1.9
+Version: 1.2.2
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: magways
@@ -141,6 +141,7 @@ Tags: grid-layout, one-column, two-columns, three-columns, left-sidebar, right-s
     --global--color-primary-menu-active: #000;
     --global--color-primary-menu-active-border: #0088cb;
     --global--color-primary-menu-desc: #0088cb;
+    --global--color-offcanvas-menu-desc: #999999;
     --global--color-sub-menu: #000;
     --global--color-sub-menu-hover: #0088cb;
     --global--color-sub-menu-bg: #fff;
@@ -3770,6 +3771,7 @@ button.toggle {
     display: flex;
     font-size: inherit;
     margin: 0;
+    flex-grow: 1;
 }
 .search-form .search-field {
     width: 100%;
@@ -5826,7 +5828,7 @@ body.showing-offcanvas-modal .magways-canvas-block {
     transform: translate3d(0, 3rem, 0);
     -webkit-transition: all 0.4s ease;
     transition: all 0.4s ease;
-    z-index: 10;
+    z-index: 100;
 }
 .magways-search-form .em-search-form-inner {
     box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.2);
@@ -6388,6 +6390,7 @@ Theme Styles
     font-weight: 600;
     line-height: 1;
     color: #313131;
+    font-family: var(--heading--font-family);
 }
 .site-title a {
     color: inherit;
@@ -7096,6 +7099,9 @@ a.text-decoration-none {
 .magways-footer-widgets .saga-element-title,
 .magways-canvas-content .saga-element-title {
     font-size: 2.2rem;
+}
+.magways-canvas-content .menu-item-description {
+    color: var(--global--color-offcanvas-menu-desc);
 }
 
 /* Elements Titles / Widget Titles */
@@ -8011,6 +8017,11 @@ body.rtl
         flex-direction: row;
         align-items: center;
         gap: 2.4rem;
+    }
+    .magways-express-posts.style_2
+        .magways-article-block-wrapper
+        > :where(.article-image, .article-details) {
+        flex-basis: 50%;
     }
 }
 .magways-express-posts .magways-article-block-wrapper .article-excerpt,
